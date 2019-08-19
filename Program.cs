@@ -1,4 +1,5 @@
 ﻿using System;
+using Problems;
 
 namespace DailyCodingProblems
 {
@@ -7,26 +8,31 @@ namespace DailyCodingProblems
         static void Main(string[] args)
         {
             CreateHeader();
-
-            Console.WriteLine("Input problem #:");
-
-            bool exitApplication = false;
-
-            while (!exitApplication) {
-
+            while (true) {
+                Console.WriteLine("Input problem #:");
+                string userInput = Console.ReadLine();
+                int problemNumber = 0;
+                bool validInput = Int32.TryParse(userInput, out problemNumber);
+                if (validInput) {                    
+                    switch (problemNumber) {
+                        case 21:
+                            Problem21 problem21 = new Problem21();
+                            problem21.Main();
+                            break;
+                        default:
+                            break;
+                    }
+                }
             }
-
-            string codingProblemNumber = Console.ReadLine();
         }
 
-        static void CreateHeader () {
+        static void CreateHeader () 
+        {
             const string headerText = "Daily Coding Challenges";
             Console.WriteLine();
             Console.WriteLine(headerText);
             Console.WriteLine(new String('-', headerText.Length));
-            Console.WriteLine();
-            Console.WriteLine("Input the ");
-            
+            Console.WriteLine();            
         }
     }
 
