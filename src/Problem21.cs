@@ -29,12 +29,15 @@ namespace Problems
             }
         }
 
+        //sorting problem but with buckets
+        //lets utilize binary sort
         static int Execute (List<int[]> input) {
-            int roomCount = 0;            
+            Dictionary<int, List<int[]>> rooms = new Dictionary<int, List<int[]>>();
             foreach (int[] intArray in input) {
+                foreach (KeyValuePair<int, List<int[]>> kvp in rooms) {
 
+                }
             }
         }
     }
-
 }
