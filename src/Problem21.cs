@@ -24,8 +24,6 @@ namespace Problems
             Console.ReadLine();
         }
 
-        //sorting problem but with buckets
-        //lets utilize binary sort
         static int Execute (List<int[]> input) {
             Dictionary<int, List<int[]>> rooms = new Dictionary<int, List<int[]>>();
             int roomCount = 1;
@@ -54,10 +52,6 @@ namespace Problems
             }
 
             return rooms.Count;
-        }
-    
-        static int Execute2 (List<int[]> input) {
-            
         }
     }
 }

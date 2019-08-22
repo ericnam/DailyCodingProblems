@@ -10,12 +10,15 @@ namespace DailyCodingProblems
             CreateHeader();
             while (true) {
                 Console.WriteLine("Input problem #:");
-                // string userInput = Console.ReadLine();
-                string userInput = "21";
+                string userInput = "1";
                 int problemNumber = 0;
                 bool validInput = Int32.TryParse(userInput, out problemNumber);
                 if (validInput) {                    
                     switch (problemNumber) {
+                        case 1:
+                            Problem1 problem1 = new Problem1();
+                            problem1.Main();
+                            break;
                         case 21:
                             Problem21 problem21 = new Problem21();
                             problem21.Main();
