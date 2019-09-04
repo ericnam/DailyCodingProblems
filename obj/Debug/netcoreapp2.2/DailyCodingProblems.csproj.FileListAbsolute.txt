@@ -9,3 +9,14 @@ C:\git\DailyCodingProblems\obj\Debug\netcoreapp2.2\DailyCodingProblems.AssemblyI
 C:\git\DailyCodingProblems\obj\Debug\netcoreapp2.2\DailyCodingProblems.AssemblyInfo.cs
 C:\git\DailyCodingProblems\obj\Debug\netcoreapp2.2\DailyCodingProblems.dll
 C:\git\DailyCodingProblems\obj\Debug\netcoreapp2.2\DailyCodingProblems.pdb
+C:\Dev-Personal\DailyCodingProblems\bin\Debug\netcoreapp2.2\DailyCodingProblems.deps.json
+C:\Dev-Personal\DailyCodingProblems\bin\Debug\netcoreapp2.2\DailyCodingProblems.runtimeconfig.json
+C:\Dev-Personal\DailyCodingProblems\bin\Debug\netcoreapp2.2\DailyCodingProblems.runtimeconfig.dev.json
+C:\Dev-Personal\DailyCodingProblems\bin\Debug\netcoreapp2.2\DailyCodingProblems.dll
+C:\Dev-Personal\DailyCodingProblems\bin\Debug\netcoreapp2.2\DailyCodingProblems.pdb
+C:\Dev-Personal\DailyCodingProblems\obj\Debug\netcoreapp2.2\DailyCodingProblems.csprojAssemblyReference.cache
+C:\Dev-Personal\DailyCodingProblems\obj\Debug\netcoreapp2.2\DailyCodingProblems.csproj.CoreCompileInputs.cache
+C:\Dev-Personal\DailyCodingProblems\obj\Debug\netcoreapp2.2\DailyCodingProblems.AssemblyInfoInputs.cache
+C:\Dev-Personal\DailyCodingProblems\obj\Debug\netcoreapp2.2\DailyCodingProblems.AssemblyInfo.cs
+C:\Dev-Personal\DailyCodingProblems\obj\Debug\netcoreapp2.2\DailyCodingProblems.dll
+C:\Dev-Personal\DailyCodingProblems\obj\Debug\netcoreapp2.2\DailyCodingProblems.pdb

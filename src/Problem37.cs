@@ -14,21 +14,36 @@ namespace Problems
 
         public void Main()
         {
-            
-        }
+            // Exmaple
+            // [] = [{}]
+            // [a] = [{}, {a}]
+            // [a, b] = [{}, {a}, {b}, {a, b}]
+            // [a, b, c] = [{}, {a}, {b}, {c}, {a,b}, {a,c}, {b,c}, {a,b,c}]
+            foreach (List<int> j in PowerSet(new List<int>() {1, 2, 3})) {
+                foreach(int i in j) {
+                    Console.Write(i);
+                }
+                Console.WriteLine();
+            }
+            Console.ReadLine();
+        } 
 
-        static List<List<int>> Execute (List<int> input) {
-            List<List<int>> result = new List<List<int>>();
-            List<int> subArray = new List<int>();
-
-            result.Add(subArray);
-
-            foreach (int i in input) {
-
-
+        static List<List<int>> PowerSet(List<int> input)
+        {
+            if (input.Count == 0) {
+                return new List<List<int>>();
             }
 
-            return result;
+            List<List<int>> result = PowerSet(input.GetRange(1, input.Count - 1));
+            List<List<int>> result2 = new List<List<int>>();
+            int i = input[0];
+            foreach (List<int> r in result) {
+                List<int> j = r;
+                j.Add(i);
+                result2.Add(r);
+            }
+
+            return result.Concat(result2).ToList();
         }
     }
 }
