@@ -10,7 +10,7 @@ namespace DailyCodingProblems
             CreateHeader();
             while (true) {
                 Console.WriteLine("Input problem #:");
-                string userInput = "29";
+                string userInput = "43";
                 int problemNumber = 0;
                 bool validInput = Int32.TryParse(userInput, out problemNumber);
                 if (validInput) {                    
@@ -30,6 +30,10 @@ namespace DailyCodingProblems
                         case 37:
                             Problem37 problem37 = new Problem37();
                             problem37.Main();
+                            break;
+                        case 43:
+                            Problem43 problem43 = new Problem43();
+                            problem43.Main();
                             break;
                         default:
                             break;
