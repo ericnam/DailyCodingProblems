@@ -15,30 +15,36 @@ namespace Problems
         {
             Console.WriteLine("asdf");
             string decodedString =  "AAAABBCCCDEE";
-            Console.WriteLine(Encode(decodedString));
+            string result1 = Encode(decodedString);
+            Console.WriteLine(result1);
             string encodedString =  "4A2B3C1D2E";
-            Console.WriteLine(Decode(encodedString));
+            string result2 = Decode(encodedString);
+            Console.WriteLine((result2));
             Console.ReadLine();
         } 
 
         static string Encode(string input)
         {
-            string[] inputArray = input.Split("").ToArray();
+            char[] inputArray = input.ToCharArray();
             string encodedString = string.Empty;
             string cur = string.Empty;
             int count = 0;
             
-            foreach(string str in inputArray) {
-                if (cur != str && count > 0) {
-                    encodedString.Concat(count.ToString());
-                    encodedString.Concat(cur);
-                    count = 0;
+            for (int i = 0; i < inputArray.Length; i++) {
+                if ((cur != inputArray[i].ToString() && count > 0)) {
+                    encodedString += count.ToString();
+                    encodedString += cur;
+                    count = 1;
                 }
                 else
                 {
                     count += 1;
+                    if (i == inputArray.Length - 1) {
+                        encodedString += count.ToString();
+                        encodedString += cur;
+                    }
                 }
-                cur = str;
+                cur = inputArray[i].ToString();
             }
 
             return encodedString;
@@ -46,14 +52,14 @@ namespace Problems
         
         static string Decode(string input)
         {
-            string[] inputArray = input.Split("").ToArray();
+            char[] inputArray = input.ToCharArray();
             string decodedString = string.Empty;
 
             for (int y = 0; y < inputArray.Length; y++) {
                 int i = 0;
-                if (Int32.TryParse(inputArray[y], out i)) {
-                    string s = inputArray[y+1];
-                    decodedString.Concat(string.Concat(Enumerable.Repeat(s, i)));
+                if (Int32.TryParse(inputArray[y].ToString(), out i)) {
+                    string s = inputArray[y+1].ToString();
+                    decodedString += string.Concat(Enumerable.Repeat(s, i));
                 }
                 else
                 {
