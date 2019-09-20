@@ -68,21 +68,19 @@ class LinkedListTest
 {
     public void Main () {
         LinkedList linkedList = new LinkedList();
-        linkedList.Push(new Node(15));
-        linkedList.Push(new Node(10));
-        linkedList.Push(new Node(7));
-        linkedList.Push(new Node(5));
+        linkedList.Push(new Node(1));
         linkedList.Push(new Node(2));
+        linkedList.Push(new Node(3));
+        linkedList.Push(new Node(4));
+        linkedList.Push(new Node(5));
 
         LinkedList linkedList2 = new LinkedList();
-        linkedList2.Push(new Node(9));
-        linkedList2.Push(new Node(15));
-        linkedList2.Push(new Node(10));
-        linkedList2.Push(new Node(7));
-        linkedList2.Push(new Node(5));
+        linkedList2.Push(new Node(1));
         linkedList2.Push(new Node(2));
+        linkedList2.Push(new Node(3));
         
-        Console.WriteLine(CompareTwoListsLexicographically(linkedList, linkedList2));
+        LinkedList combined = CombineIntRepresentedByLinkedList(linkedList, linkedList2);
+        combined.PrintList();
 
         Console.ReadLine();
     }
@@ -125,5 +123,78 @@ class LinkedListTest
         {
             return -1;
         }
+    }
+
+    public LinkedList CombineIntRepresentedByLinkedList (LinkedList l1, LinkedList l2) {
+        int l1_size = GetSize(l1.Head);
+        int l2_size = GetSize(l2.Head);
+
+        LinkedList sum = new LinkedList();
+        if (l1_size > l2_size) {
+            sum.Head = BuildNodeSumRecursively (l1.Head, 0, l2.Head, l1_size - l2_size);
+        }
+        else if (l1_size < l2_size) {
+            sum.Head = BuildNodeSumRecursively (l1.Head, l1_size - l2_size, l2.Head, 0);
+        }
+        else
+        {
+            sum.Head = BuildNodeSumRecursively (l1.Head, 0, l2.Head, 0);
+        }
+
+        return sum;
+    }
+
+    private Node BuildNodeSumRecursively (Node n1, int p1, Node n2, int p2) {
+        Node n = new Node();
+
+        if (n1 == null || n2 == null) {
+            return null;
+        }
+
+        if (p1 == 0) {
+            n.Data += n1.Data;
+            n1 = n1.Next;
+        }
+        else
+        {
+            p1 -= 1;
+        }
+        
+        if (p2 == 0) {
+            n.Data += n2.Data;
+            n2 = n2.Next;
+        }
+        else
+        {
+            p2 -= 1;
+        }
+
+        n.Next = BuildNodeSumRecursively(n1, p1, n2, p2);
+
+        return n;
+     }
+
+    public int GetSize (Node node) {
+        Node n = node;
+        int s = 0;
+        while (n != null) {
+            n = n.Next;
+            s += 1;
+        }
+        return s;
+    }
+
+    public int CombineTwoLinkedListValues (LinkedList l1, LinkedList l2) {
+        int l1Sum = AddValues(l1.Head);
+        int l2Sum = AddValues(l2.Head);
+
+        return l1Sum + l2Sum;
+    }
+
+    private int AddValues (Node node) {
+        if (node == null) {
+            return 0;
+        }
+        return node.Data + AddValues(node.Next);
     }
 }
