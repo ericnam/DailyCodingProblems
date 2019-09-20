@@ -10,12 +10,16 @@ namespace DailyCodingProblems
             CreateHeader();
             while (true) {
                 Console.WriteLine("Input problem #:");
-                string userInput = "44";
+                string userInput = "LinkedList";
                 int problemNumber = 0;
 
                 if (userInput == "sort") {
                     SortingAlgorithms SortingAlgorithms = new SortingAlgorithms();
                     SortingAlgorithms.Main();
+                }
+                else if (userInput == "LinkedList") {
+                    LinkedListTest linkedList = new LinkedListTest();
+                    linkedList.Main();
                 }
                 else
                 {
