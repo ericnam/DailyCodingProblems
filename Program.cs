@@ -10,7 +10,7 @@ namespace DailyCodingProblems
             CreateHeader();
             while (true) {
                 Console.WriteLine("Input problem #:");
-                string userInput = "57";
+                string userInput = "LinkedList";
                 int problemNumber = 0;
 
                 if (userInput == "sort") {

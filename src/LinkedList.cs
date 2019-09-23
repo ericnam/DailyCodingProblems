@@ -54,6 +54,29 @@ public class LinkedList
         }
     }
 
+    //
+    // Merge two linked lists in alternating positions
+    // If the length of l1 < l2, alternate until the end of l1, and leave the remaining in l2 as is
+    public void MergeLinkedListsAtAltPositions (LinkedList inputList) {       
+          IterateList(Head, inputList);
+    }
+
+    private void IterateList(Node n1, LinkedList inputList) {
+        if (n1 == null) {
+            return;
+        }
+        else
+        {
+            if (inputList.Head == null) { return; }
+
+            Node temp = n1.Next;
+            n1.Next = inputList.Head;
+            inputList.Head = inputList.Head.Next;
+            n1.Next.Next = temp;
+            IterateList(n1.Next.Next, inputList);
+        }        
+    }
+
     public void PrintList() {
         Node node = Head;
         while (node != null) {
@@ -62,7 +85,6 @@ public class LinkedList
         }
     }
 }
-
 
 class LinkedListTest
 {
@@ -78,12 +100,26 @@ class LinkedListTest
         linkedList2.Push(new Node(1));
         linkedList2.Push(new Node(2));
         linkedList2.Push(new Node(3));
+        linkedList2.Push(new Node(3));
+        linkedList2.Push(new Node(3));
+        linkedList2.Push(new Node(3));
+        linkedList2.Push(new Node(3));
+        linkedList2.Push(new Node(3));
+        linkedList2.Push(new Node(3));
         
-        LinkedList combined = CombineIntRepresentedByLinkedList(linkedList, linkedList2);
-        combined.PrintList();
+        Node h1 = linkedList.Head;
+        Node h2 = linkedList2.Head;
+
+        linkedList.MergeLinkedListsAtAltPositions(linkedList2);
+
+        Console.WriteLine("List_1");
+        linkedList.PrintList();
+        Console.WriteLine("List_2");
+        linkedList2.PrintList();
 
         Console.ReadLine();
     }
+
 
     public int CompareTwoListsLexicographically(LinkedList linkedList, LinkedList linkedList2) {
         if (linkedList == linkedList2) {
