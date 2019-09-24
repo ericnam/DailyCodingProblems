@@ -54,6 +54,47 @@ public class LinkedList
         }
     }
 
+
+    public LinkedList GetUnion (LinkedList inputList) {
+        Dictionary<int, int> dictionary = new Dictionary<int, int>();
+        NodeToDict(Head, ref dictionary);
+        NodeToDict(inputList.Head, ref dictionary);
+
+        LinkedList unionList = new LinkedList();
+        foreach (KeyValuePair<int, int> kvp in dictionary) {
+            unionList.Push(new Node(kvp.Key));
+        }
+
+        return unionList;
+    }
+
+    public LinkedList GetIntersection (LinkedList inputList) {
+        Dictionary<int, int> dictionary = new Dictionary<int, int>();
+        NodeToDict(Head, ref dictionary);
+        NodeToDict(inputList.Head, ref dictionary);
+
+        LinkedList intersectionList = new LinkedList();
+        foreach (KeyValuePair<int, int> kvp in dictionary.Where(x => x.Value > 1)) {
+            intersectionList.Push(new Node(kvp.Key));
+        }
+
+        return intersectionList;
+    }
+
+    private void NodeToDict (Node node, ref Dictionary<int, int> dictionary) {
+        while (node != null) {
+            if (dictionary.TryGetValue(node.Data, out int count)) {
+                count += 1;
+                dictionary[node.Data] = count;
+            }
+            else
+            {
+                dictionary.Add(node.Data, 1);
+            }
+            node = node.Next;
+        }
+    }
+
     //
     // Merge two linked lists in alternating positions
     // If the length of l1 < l2, alternate until the end of l1, and leave the remaining in l2 as is
@@ -110,12 +151,14 @@ class LinkedListTest
         Node h1 = linkedList.Head;
         Node h2 = linkedList2.Head;
 
-        linkedList.MergeLinkedListsAtAltPositions(linkedList2);
+        LinkedList returnList = linkedList.GetIntersection(linkedList2);
+        returnList.PrintList();
 
-        Console.WriteLine("List_1");
-        linkedList.PrintList();
-        Console.WriteLine("List_2");
-        linkedList2.PrintList();
+
+        // Console.WriteLine("List_1");
+        // linkedList.PrintList();
+        // Console.WriteLine("List_2");
+        // linkedList2.PrintList();
 
         Console.ReadLine();
     }
