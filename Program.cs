@@ -10,7 +10,7 @@ namespace DailyCodingProblems
             CreateHeader();
             while (true) {
                 Console.WriteLine("Input problem #:");
-                string userInput = "LinkedList";
+                string userInput = "Fib";
                 int problemNumber = 0;
 
                 if (userInput == "sort") {
@@ -20,6 +20,10 @@ namespace DailyCodingProblems
                 else if (userInput == "LinkedList") {
                     LinkedListTest linkedList = new LinkedListTest();
                     linkedList.Main();
+                }
+                else if (userInput == "Fib") {
+                    Fib fib = new Fib();
+                    fib.Main();
                 }
                 else
                 {
