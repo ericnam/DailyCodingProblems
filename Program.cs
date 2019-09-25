@@ -10,7 +10,7 @@ namespace DailyCodingProblems
             CreateHeader();
             while (true) {
                 Console.WriteLine("Input problem #:");
-                string userInput = "Fib";
+                string userInput = "search";
                 int problemNumber = 0;
 
                 if (userInput == "sort") {
@@ -24,6 +24,10 @@ namespace DailyCodingProblems
                 else if (userInput == "Fib") {
                     Fib fib = new Fib();
                     fib.Main();
+                }
+                else if (userInput == "search") {
+                    SearchingAlgorithms search = new SearchingAlgorithms();
+                    search.Main();
                 }
                 else
                 {
